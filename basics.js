@@ -8,7 +8,7 @@ const n2 = 2;
 const s1 = "1";
 const s2 = "2";
 
-const value = "2";
+const value = " ";
 if (value) {
   console.log("value is truthy");
 } else {
