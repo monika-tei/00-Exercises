@@ -11,6 +11,14 @@ console.log(`Hello ${name1} would you like some ${drink}?`);
 
 ///
 
+let myname = "Monika";
+
+let animaltype = "Cat";
+
+let animalname = "Choko";
+
+console.log(`My name is ${myname}.\nI have a ${animaltype} called ${animalname}.`);
+
 // the next thing, lenght
 
 let leng = myname.length;
