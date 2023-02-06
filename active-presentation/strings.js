@@ -1,7 +1,4 @@
 "use strict";
-
-let str1 = "this is a string";
-let str2 = "also";
 let str3 = `who could have thought????`;
 
 let name1 = 'Monsieur "Kelele" the royal cat';
