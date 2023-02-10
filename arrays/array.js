@@ -1,5 +1,4 @@
 "use strict";
-
 // Basic Arrays
 // An array is a List of Things (items)
 
@@ -11,7 +10,6 @@
 // console.log(someLetter, anotherLetter);
 
 // ex2 Arrays can be modified
-// s
 // here, the 'e' is modified into a '*'
 // console.log(letters);
 // so the new value is passed onto the original
@@ -42,9 +40,9 @@ console.log(result);
 console.log(people);
 
 //method 5
-// result = people.slice(0, 3);
-// console.log(result); // Slice / returns a portion of array (start, end )indexes and creates a new array; interestingly, last number is not included in result.
-// Original array is notm modified!
+result = people.slice(0, 3);
+console.log(result); // Slice / returns a portion of array (start, end )indexes and creates a new array; interestingly, last number is not included in result.
+// Original array is not modified!
 console.log(people);
 
 //method 6
@@ -91,4 +89,4 @@ console.log(arr2); // array of 13
 const array1 = [1, 2, "klmn", "5f"];
 console.log(array1);
 console.log(array1.join("_"));
-console.log(array1.toString()); //  retunrs a s
+console.log(array1.toString()); //  retunrs a string
