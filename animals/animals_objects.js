@@ -41,6 +41,8 @@ function prepareObjects(jsonData) {
     animals.type = values[3];
     animals.age = jsonObject.age;
     // Add the new object to the array of animals
+    allAnimals.push(animals);
+    // console.log(allAnimals);
   });
 
   displayList();
