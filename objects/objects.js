@@ -47,3 +47,5 @@ console.log(person1); //viewing the whole object, we see LN as a property in bra
 delete person1.lastName;
 console.log(person1.lastName); // returnds undefined
 console.log(person1); //viewing the whole object now, we see 3 values but no trace of lastName property that was just deleted.
+
+//DECLARING WITH CONST
