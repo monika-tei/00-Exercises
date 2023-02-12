@@ -82,3 +82,50 @@ const human2 = human1; // human 2 is refering back to human1
 human2.firstName = "Bobby";
 console.log(human1.firstName); // human1 inherited the changes made in the copy human2!
 //when you modify person2 it also modified the property of human1
+
+//COMPARING
+
+// const student1 = {
+//   firstName: "Harry",
+//   lastName: "Potter",
+// };
+
+// console.log(student1);
+
+// const student2 = student1; //creates two objects
+
+// if (student1 === student2) {
+//   console.log("they are the same!");
+// } else {
+//   console.log("they are not...");
+// }
+
+// // === - the same!
+// // == - and same
+
+//part2
+
+const student1 = {
+  firstName: "Harry",
+  lastName: "Potter",
+};
+const student2 = {
+  firstName: "Harry",
+  lastName: "Potter",
+};
+if (student1 === student2) {
+  console.log("same!");
+} else {
+  console.log("NOT");
+} // results with both == , === are NOT the same
+
+//making one object exactly like the other
+
+student1.firstName = student2.firstName;
+student1.lastName = student2.lastName;
+
+if (student1 === student2) {
+  console.log("same!");
+} else {
+  console.log("NOT");
+} // nope nope, we cannot compare them!
