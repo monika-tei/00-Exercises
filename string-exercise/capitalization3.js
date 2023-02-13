@@ -1,9 +1,14 @@
 "use strict";
-/**Given a single name string in an unknown case, e.g. “peter” or “PETER” - create a new string with the same name, where the third letter is uppercase, and the rest is lowercase. I.e. “peTer”. */
 
-//Hint: use substring, toUpperCase, toLowerCase and simple string concatenation
+const myName = "Monika";
 
-const name = "Monika";
+// grab the character on the 2nd index and make it uppercase;
+let thirdletter = myName.charAt(2);
+let thirdLetterUp = thirdletter.toUpperCase();
+// make everything else lowercase;
+let nameStart = myName.slice(0, 2).toLowerCase();
+let nameEnd = myName.slice(3).toLowerCase();
 
-// const version1 = "name."
-console.log(version1);
+let newName = nameStart + thirdLetterUp + nameEnd;
+
+console.log(newName);
