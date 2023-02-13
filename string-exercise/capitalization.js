@@ -1,15 +1,21 @@
 "use strict";
-/**Use the 3caPitalization exercise as a basis for this exercise. 
- * Modify the code, so that only the first letter is upper case, and the rest is lower case.
-Make sure that it can take names of any length! */
 
-const myName = "harispoteris";
+const myName = "potter";
 
 function formatName(myName) {
-  let firstCharUp = myName.charAt(0).toUpperCase();
-  let restOfName = myName.slice(1).toLowerCase();
-  return firstCharUp + restOfName;
+  return myName.charAt(0).toUpperCase() + myName.slice(1).toLowerCase();
 }
 
 let editedName = formatName(myName);
 console.log(editedName);
+
+/** CONTINUED  */
+
+let str = "haris poteris";
+//str is the parameter - the string you want to capitalize;
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
+}
+
+let capitalizedString = capitalize(str);
+console.log(capitalizedString);
