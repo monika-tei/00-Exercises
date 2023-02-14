@@ -11,7 +11,7 @@ function randomBackground() {
 
 // returns random rgb color object++
 // receives no parameters++
-// creates three values with random integers between0 - 255++
+// creates three values with random integers between 0 - 255++
 function randomColor() {
   const r = Math.floor(Math.random) * 256;
   const g = Math.floor(Math.random) * 256;
@@ -20,8 +20,10 @@ function randomColor() {
   return { r, g, b };
 }
 
-//converts RGB color object into CSS color string
 // receives rgb object with values for r-g-b
 // creates a string with the r-g-b numbers
 // returns that string
-function rgbToCSS(rgb) {}
+function rgbToCSS(rgb) {
+  let colorString = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+  return colorString;
+}
