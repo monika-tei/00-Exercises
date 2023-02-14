@@ -17,5 +17,13 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
 }
 
+// another way without return
 let capitalizedString = capitalize(str);
 console.log(capitalizedString);
+
+function capitalizeIt(string) {
+  const capitalizedName = `${string.charAt(0).toUpperCase()}${string.slice(1).toLowerCase()}`;
+  console.log(capitalizedName);
+}
+
+let string;
