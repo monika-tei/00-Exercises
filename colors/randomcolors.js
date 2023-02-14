@@ -6,16 +6,18 @@
 // calls rgbtoCSS with that object to get a CSS string
 // uses return value as value for body.style.backgroundColor
 function randomBackground() {
-  console.log("random background");
+  document.querySelector("body").style.backgroundColor = rgbToCSS(randomColor());
 }
+
+randomBackground();
 
 // returns random rgb color object++
 // receives no parameters++
 // creates three values with random integers between 0 - 255++
 function randomColor() {
-  const r = Math.floor(Math.random) * 256;
-  const g = Math.floor(Math.random) * 256;
-  const b = Math.floor(Math.random) * 256;
+  let r = Math.floor(Math.random() * 255);
+  let g = Math.floor(Math.random() * 255);
+  let b = Math.floor(Math.random() * 255);
 
   return { r, g, b };
 }
