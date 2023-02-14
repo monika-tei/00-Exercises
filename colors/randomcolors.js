@@ -9,10 +9,16 @@ function randomBackground() {
   console.log("random background");
 }
 
-// returns random rgb color object
-// receives no parameters
-// creates three values with random integers between0 - 255
-function randomColor() {}
+// returns random rgb color object++
+// receives no parameters++
+// creates three values with random integers between0 - 255++
+function randomColor() {
+  const r = Math.floor(Math.random) * 256;
+  const g = Math.floor(Math.random) * 256;
+  const b = Math.floor(Math.random) * 256;
+
+  return { r, g, b };
+}
 
 //converts RGB color object into CSS color string
 // receives rgb object with values for r-g-b
