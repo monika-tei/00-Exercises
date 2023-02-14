@@ -1,13 +1,13 @@
 "use strict";
 
-const myName = "potter";
+// const myName = "potter";
 
-function formatName(myName) {
-  return myName.charAt(0).toUpperCase() + myName.slice(1).toLowerCase();
-}
+// function formatName(myName) {
+//   return myName.charAt(0).toUpperCase() + myName.slice(1).toLowerCase();
+// }
 
-let editedName = formatName(myName);
-console.log(editedName);
+// let editedName = formatName(myName);
+// console.log(editedName);
 
 /** CONTINUED  */
 
@@ -17,13 +17,12 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.substring(1).toLowerCase();
 }
 
-// another way without return
-let capitalizedString = capitalize(str);
-console.log(capitalizedString);
+/**FEB14 --- FUNCTION + RETURN */
 
-function capitalizeIt(string) {
-  const capitalizedName = `${string.charAt(0).toUpperCase()}${string.slice(1).toLowerCase()}`;
-  console.log(capitalizedName);
+function capitalized(str) {
+  const capitalizedName = `${str.charAt(0).toUpperCase() + str.substring(1).toLowerCase()}`;
+  return capitalizedName;
 }
 
-let string;
+let name = capitalized("mOnIKA");
+console.log(name);
