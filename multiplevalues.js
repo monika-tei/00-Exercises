@@ -11,3 +11,10 @@ console.log("Hex to GRB", hexToRGB("#f80ea3"));
 console.log("Hex to RGB blue", hexToRGB("#f80ea3").b);
 
 // another example
+
+function personFactory(firstName, lastName, age, isGinger) {
+  return { firstName, lastName, age, isGinger };
+}
+
+let newPerson = personFactory("Peter", "Tolstrup", 44, true);
+console.log("KEA staff", newPerson);
