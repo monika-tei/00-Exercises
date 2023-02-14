@@ -20,10 +20,8 @@ console.log("Hex to RGB", hexToRGB("#c0de25"));
 
 // RGB to HEX
 
-// Takes a parameter for r, g, and b, and builds a hex-color code from the three values
-
 // The function must receive an object with r, g and b values as numbers++
-// The function must then create a hex-string, starting with a # symbol, followed by exactly six digits, and log it to the console.
+// The function must then create a hex-string, starting with a # symbol, followed by exactly six digits++
 
 function RGBtoHex(r, g, b) {
   const hexR = r.toString(16).padStart(2, "0");
@@ -33,8 +31,15 @@ function RGBtoHex(r, g, b) {
   return `#${hexR}${hexG}${hexB}`;
 }
 
-console.log("RGB to Hex", RGBtoHex(192, 222, 37)); // #c0de25
+console.log("RGB to Hex", RGBtoHex(12, 2, 17)); // #0c0211
 /**
  *  padStart() method is used to ensure that each of the hexadecimal components has at least two digits.
  * The first argument of padStart() is the minimum length that the resulting string should have, and the second argument is the character that should be used to pad the string. In this case, the minimum length is 2, which means that if the resulting hexadecimal value has only one digit, a leading 0 will be added. The padding character used is "0".
  */
+
+// CSS to RGB
+
+// Create a function to convert from a CSS color-definition string, like "rgb(192, 13, 1)" to r, g, and b values (numbers), in this case: 192, 13 and 1 respectively.
+//The function must receive a single string.
+// Create three variables, r, g, and b - set their values correctly, and log them to the console.
+/**Use substring and/or split, and possibly trim, to get the three values into three separate strings - and use parseInt to convert them into numbers. Create variables for r, g, and b, and console.log them at the end of the function. */
