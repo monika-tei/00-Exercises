@@ -17,7 +17,7 @@ const fullName = "peter heronimous lind";
 // let lastName = fullName.substring(lastSpace + 1);
 // console.log(lastName);
 
-/* Continued.... */
+/* Continued NAMEPARTS PT.2.... */
 
 /**Find the old code you made to split a string into three variables: firstName, middleName and lastName, and put it inside a function named getNameParts( fullname ), where fullname is the parameter, the string you want to split up.
 
@@ -27,7 +27,6 @@ Make sure that the function creates three new strings: firstName, middleName and
 
 function getNameParts(fullName) {
   let firstName = fullName.substring(0, fullName.indexOf(" "));
-  // Middle name: fix it so that the middleName is either null or undefined, if there were no middle name in the fullname!
   let middleName;
   if (fullName.substring(fullName.indexOf(" ") + 1, fullName.lastIndexOf(" ")) === " ") {
     middleName = undefined;
@@ -41,3 +40,5 @@ function getNameParts(fullName) {
   console.log(`Last name: ${lastName}`);
 }
 getNameParts(fullName);
+
+/* Continued FULLNAME.JS.... */
