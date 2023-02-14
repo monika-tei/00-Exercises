@@ -19,6 +19,7 @@ function capitalize(str) {
 console.log(capitalize(str));
 
 /**FEB14 --- FUNCTION + RETURN */
+// how to capitalize a name;
 
 function capitalized(str) {
   const capitalizedName = `${str.charAt(0).toUpperCase() + str.substring(1).toLowerCase()}`;

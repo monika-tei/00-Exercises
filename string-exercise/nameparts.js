@@ -1,7 +1,5 @@
 "use strict";
 
-const fullName = "peter heronimous lind";
-
 // const firstSpace = fullName.indexOf(" ");
 
 // const lastSpace = fullName.lastIndexOf(" ");
@@ -24,6 +22,8 @@ const fullName = "peter heronimous lind";
 Use your original code with indexOf and substring, don't "cheat" and use .split()!
 
 Make sure that the function creates three new strings: firstName, middleName and lastName. Console.log them at the end of the function. You can console.log them as an object to make it easier, like console.log( { firstName, middleName, lastName } ); */
+
+const fullName = "peter heronimous lind";
 
 function getNameParts(fullName) {
   let firstName = fullName.substring(0, fullName.indexOf(" "));
