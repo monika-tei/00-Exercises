@@ -32,5 +32,14 @@
 
 //Just calling the function results in the returned value to be "thrown away"
 
-let firstName = fullName.substring(0, fullName.indexOf(" "));
-firstName = capitalize(firstName);
+// let firstName = fullName.substring(0, fullName.indexOf(" "));
+// firstName = capitalize(firstName);
+
+/** CONTINUING ON FUNCTIONS...FEB 16TH THURSDAY */
+// CALLBACKS & ARROWS
+
+function greeting(firstName) {
+  return `Hello ${firstName}`;
+}
+const sayHi = greeting;
+console.log(sayHi("Harry"));
