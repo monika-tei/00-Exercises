@@ -98,4 +98,30 @@ function prepareData(data) {
   console.table(data);
 }
 
-loadJSON("animals.json", prepareData);
+// loadJSON("animals.json", prepareData);
+
+// ARROW FUNCTIONS = ANONYMOUS FUNCTIONS
+// Arrow functions with only one line don't need curly brackets
+// If it's a single line it automatically returns that line
+// But if there ismore, we need to write return
+
+// HIGHER ORDER FUNCTIONS
+console.clear();
+
+const people = ["Harry", "Ron", "Hermione", "Neville"];
+
+//this below is a name function;
+function sayHello(person) {
+  console.log(`Hello ${person}`);
+}
+people.forEach(sayHello);
+
+/// this is an anonymous function, the 'person' parameter thing is just the reference, the word can be anything actually, bananas for ex.
+people.forEach((person) => {
+  console.log(`Hello ${person}`);
+}); // this does excactly the same as functionSayhello + people.foreach.
+
+function testParams(a, b, c, d) {
+  console.log(`a: ${a}, b: ${b}, c: ${c}, d: ${d}`);
+}
+people.forEach(testParams); //goes crazy, 4 parameters are taken
