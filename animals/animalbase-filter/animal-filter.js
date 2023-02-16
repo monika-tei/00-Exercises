@@ -19,5 +19,3 @@
 //Function needs to know which filter is requested, and call another function to actually set the filter (either or)
 
 // GLobal onjects, read them when building a list
-
-//Use the dataset properties / data-* attributes
