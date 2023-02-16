@@ -88,6 +88,10 @@ function loadJSON(url, callback) {
     .then((jsonData) => prepareData(jsonData));
 }
 
+//if a function is used only as a callback, and not used anywhere else,
+//and also not referred to anywhere else...
+//it doesn't need a name
+
 function prepareData(data) {
   console.log("preparing data");
   //receive data from json
