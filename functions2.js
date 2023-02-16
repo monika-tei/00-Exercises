@@ -81,3 +81,17 @@ console.log(person3); //so it's becomes true
 console.clear();
 
 //exercise loadJSON
+//we don't hardcode url, only write the parameter
+function loadJSON(url, callback) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((jsonData) => prepareData(jsonData));
+}
+
+function prepareData(data) {
+  console.log("preparing data");
+  //receive data from json
+  console.table(data);
+}
+
+loadJSON("animals.json", prepareData);
