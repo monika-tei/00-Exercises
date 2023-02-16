@@ -41,5 +41,43 @@
 function greeting(firstName) {
   return `Hello ${firstName}`;
 }
-const sayHi = greeting;
+const sayHi = greeting; // calling back a function via the variable
 console.log(sayHi("Harry"));
+
+function congreet(firstName) {
+  console.log(`Hello ${firstName}`);
+}
+// setTimeout(congreet, 100, "Ron");
+
+//Trying out the callback function
+
+const person3 = {
+  firstName: "Harry",
+  lastName: "Potter",
+  hired: false,
+};
+
+const person4 = {
+  firstName: "Fred",
+  lastName: "Weasley",
+  hired: true,
+};
+
+function hire(person) {
+  person.hired = true;
+}
+
+function fire(person) {
+  person.hired = false;
+}
+
+function fireOrHire(action, person) {
+  action(person);
+}
+
+console.log(person3); //false by default
+fireOrHire(hire, person3); // now we change it to true
+console.log(person3); //so it's becomes true
+console.clear();
+
+//exercise loadJSON
