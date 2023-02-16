@@ -124,4 +124,79 @@ people.forEach((person) => {
 function testParams(a, b, c, d) {
   console.log(`a: ${a}, b: ${b}, c: ${c}, d: ${d}`);
 }
-people.forEach(testParams); //goes crazy, 4 parameters are taken
+people.forEach(testParams);
+//goes crazy but it actually takes 4 parameters:
+// value, index, full array, undefined;
+
+// and can be rewritten as
+people.forEach((a, b, c, d) => {
+  console.log(`a: ${a}, b: ${b}, c: ${c}, d: ${d}`);
+});
+
+// ARRAY METHODS
+// is-function: we define our own criteria
+console.clear();
+
+const animals = [
+  {
+    name: "Choko",
+    type: "cat",
+  },
+  {
+    name: "Leeloo",
+    type: "dog",
+  },
+  {
+    name: "Mia",
+    type: "cat",
+  },
+  {
+    name: "Rex",
+    type: "dog",
+  },
+];
+
+function isCat(animal) {
+  console.log("looking for cats");
+  if (animal.type === "cat") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isDog(animal) {
+  console.log("looking for dogs");
+  if (animal.type === "dog") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isCat(animals[0])); // return true
+console.log(isCat(animals[1])); //return false
+console.log(isCat(animals[2])); //return false
+console.log(isCat(animals[3])); //return false
+
+// testing filter on animals
+
+function all(animal) {
+  return true;
+}
+function none(animal) {
+  return false;
+}
+
+animals.filter(all);
+animals.filter(none);
+
+console.log(animals.filter(all));
+console.log(animals.filter(none));
+/**all/none are the is-functions */
+
+const onlyCats = animals.filter(isCat);
+console.log(onlyCats); // gives me 2 arrays with cats
+
+const onlyDogs = animals.filter(isDog);
+console.log(onlyDogs); // gives me 2 arrays with cats
