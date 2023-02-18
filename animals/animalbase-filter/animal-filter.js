@@ -1,7 +1,5 @@
 "use strict";
 
-//For this exercise you are going to ignore the sorting, and only do filtering!
-
 //The user must be able to filter the displayed list by animal type.
 
 //Filter the model before it is being displayed.
@@ -21,7 +19,9 @@
 window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
+const buttons = document.querySelectorAll("button");
 
+// const btnCat = document.getElementById("btnCat");
 // The prototype for all animals:
 const Animal = {
   name: "",
@@ -32,11 +32,27 @@ const Animal = {
 
 function start() {
   console.log("ready");
+  buttons.forEach(function (button) {
+    button.addEventListener("click", sayHi);
+  });
 
   // TODO: Add event-listeners to filter and sort buttons
 
   loadJSON();
 }
+function sayHi() {
+  console.log("hi");
+}
+
+// function isCat(animal) {
+//   console.log("looking for cats");
+//   if (animal.type === "cat") {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// console.log("is a cat");
 
 async function loadJSON() {
   const response = await fetch("animals.json");
@@ -63,6 +79,30 @@ function preapareObject(jsonObject) {
   animal.age = jsonObject.age;
 
   return animal;
+}
+
+// we want to create a filtered list before we display it
+
+function filteredList(animalType) {
+  let filteredList = allAnimals;
+  if (animalType === "cat") {
+    //create a filtered list of only CATS
+    // based on what button was clicked
+    filteredList = allAnimals.filter(isCat);
+  } else if (animalType === "dog") {
+    filteredList = allAnimals.filter(isDog);
+  }
+
+  //display the list
+  displayList(filteredList);
+}
+function isCat(animal) {
+  console.log("found some cats");
+  return animal.type === "cat";
+}
+
+function isDog(animal) {
+  return animal.type === "dog";
 }
 
 function displayList(animals) {
