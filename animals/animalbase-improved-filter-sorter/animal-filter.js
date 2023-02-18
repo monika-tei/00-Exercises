@@ -60,9 +60,13 @@ function chooseFilter(event) {
   //The dataset property is a way to access the data- attributes of an element in JavaScript.
   // The above line is extracting the value of the data-filter attribute of the button element that was clicked and storing it in the filter variable. The value of filter will be either "cat" or "dog", depending on which button was clicked.
   console.log(`user chose ${filter}`);
-  filteredList(filter);
+  // filteredList(filter);
+  setFilter(filter);
 }
 
+function setFilter(filterBy) {
+  buildList();
+}
 // we want to create a filtered list before we display it
 // filter for cats, for dogs, and all animals
 
@@ -163,6 +167,13 @@ function sortList(sortBy, sortDir) {
 //     return 1;
 //   }
 // }
+
+/** Next step... */
+function buildList() {
+  const currentList = filteredList(allAnimals);
+  const sortedList = sortList(currentList);
+  displayList(sortedList);
+}
 
 function displayList(animals) {
   // clear the list
