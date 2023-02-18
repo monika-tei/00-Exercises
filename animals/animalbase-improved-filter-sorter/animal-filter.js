@@ -13,6 +13,12 @@ const Animal = {
   age: 0,
 };
 
+const settings = {
+  filter: "all",
+  sortBy: "name",
+  sortDir: "asc",
+};
+
 function start() {
   console.log("ready");
   // TODO: Add event-listeners to btn
@@ -64,23 +70,24 @@ function chooseFilter(event) {
   setFilter(filter);
 }
 
-function setFilter(filterBy) {
+function setFilter(filter) {
+  settings.filterBy = filter;
+
   buildList();
 }
 // we want to create a filtered list before we display it
 // filter for cats, for dogs, and all animals
 
-function filteredList(filterBy) {
-  let filteredList = allAnimals;
-  if (filterBy === "cat") {
+function filterList(filteredList) {
+  // let filteredList = allAnimals;
+  if (settings.filterBy === "cat") {
     //create a filtered list of only CATS
     filteredList = allAnimals.filter(isCat);
-  } else if (filterBy === "dog") {
+  } else if (settings.filterBy === "dog") {
     filteredList = allAnimals.filter(isDog);
   }
 
-  //display the list
-  displayList(filteredList);
+  return filteredList;
 }
 function isCat(animal) {
   console.log("found some cats");
@@ -107,28 +114,22 @@ function chooseSort(event) {
   }
 
   console.log(`user sorting by ${sortBy} and ${sortDir}`);
-  sortList(sortBy, sortDir);
+  // sortList(sortBy, sortDir);
+  setSort(sortBy, sortDir);
 }
 
-// making this function into generic function that can take any parameter
-// function sortList(sortBy) {
-//   let sortedList = allAnimals;
+function setSort(sortBy, sortDir) {
+  settings.sortBy = sortBy;
+  settings.sortDir = sortDir;
 
-//   if (sortBy === "name") {
-//     sortedList = sortedList.sort(sortByName);
-//   } else if (sortBy === "type") {
-//     sortedList = sortedList.sort(sortByType);
-//   }
-//   displayList(sortedList);
-// }
+  buildList();
+}
 
-//Generic sort function
-
-function sortList(sortBy, sortDir) {
-  let sortedList = allAnimals;
+function sortList(sortedList) {
+  // let sortedList = allAnimals;
   let direction = 1;
-  //some code here
-  if (sortDir === "desc") {
+
+  if (settings.sortDir === "desc") {
     direction = -1;
   } else {
     direction = 1;
@@ -138,40 +139,21 @@ function sortList(sortBy, sortDir) {
 
   //this function needs to stay within the function;
   function sortByProperty(animalA, animalB) {
-    if (animalA[sortBy] < animalB[sortBy]) {
+    if (animalA[settings.sortBy] < animalB[settings.sortBy]) {
       return -1 * direction;
     } else {
       return 1 * direction;
     }
   }
 
-  displayList(sortedList);
+  return sortedList;
 }
-
-//changing the sort direction when the user clicks!
-
-/*don't need this anymore*/
-
-// function sortByName(animalA, animalB) {
-//   if (animalA.name < animalB.name) {
-//     return -1;
-//   } else {
-//     return 1;
-//   }
-// }
-
-// function sortByType(animalA, animalB) {
-//   if (animalA.type < animalB.type) {
-//     return -1;
-//   } else {
-//     return 1;
-//   }
-// }
 
 /** Next step... */
 function buildList() {
-  const currentList = filteredList(allAnimals);
+  const currentList = filterList(allAnimals);
   const sortedList = sortList(currentList);
+
   displayList(sortedList);
 }
 
