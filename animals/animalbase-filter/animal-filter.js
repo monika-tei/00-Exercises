@@ -109,38 +109,77 @@ function isDog(animal) {
 
 function chooseSort(event) {
   const sortBy = event.target.dataset.sort;
-  console.log(`user sorting by ${sortBy}`);
-  sortList(sortBy);
-}
+  //camel case because of the hyphen sort-direction, becomes sortDirection
+  const sortDir = event.target.dataset.sortDirection;
 
-function sortList(sortBy) {
-  let sortedList = allAnimals;
-
-  if (sortBy === "name") {
-    sortedList = sortedList.sort(sortByName);
-  } else if (sortBy === "type") {
-    sortedList = sortedList.sort(sortByType);
+  // toggles direction
+  if (sortDir === "asc") {
+    event.target.dataset.sortDirection = "desc";
+  } else {
+    event.target.dataset.sortDirection = "asc";
   }
 
-  //hardcode only name, only type, now add more functionality
+  console.log(`user sorting by ${sortBy} and ${sortDir}`);
+  sortList(sortBy, sortDir);
+}
+
+// making this function into generic function that can take any parameter
+// function sortList(sortBy) {
+//   let sortedList = allAnimals;
+
+//   if (sortBy === "name") {
+//     sortedList = sortedList.sort(sortByName);
+//   } else if (sortBy === "type") {
+//     sortedList = sortedList.sort(sortByType);
+//   }
+//   displayList(sortedList);
+// }
+
+//Generic sort function
+
+function sortList(sortBy, sortDir) {
+  let sortedList = allAnimals;
+  let direction = 1;
+  //some code here
+  if (sortDir === "desc") {
+    direction = -1;
+  } else {
+    direction = 1;
+  }
+
+  sortedList = sortedList.sort(sortByProperty);
+
+  //this function needs to stay within the function;
+  function sortByProperty(animalA, animalB) {
+    if (animalA[sortBy] < animalB[sortBy]) {
+      return -1 * direction;
+    } else {
+      return 1 * direction;
+    }
+  }
+
   displayList(sortedList);
 }
 
-function sortByName(animalA, animalB) {
-  if (animalA.name < animalB.name) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+//changing the sort direction when the user clicks!
 
-function sortByType(animalA, animalB) {
-  if (animalA.type < animalB.type) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
+/*don't need this anymore*/
+
+// function sortByName(animalA, animalB) {
+//   if (animalA.name < animalB.name) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
+
+// function sortByType(animalA, animalB) {
+//   if (animalA.type < animalB.type) {
+//     return -1;
+//   } else {
+//     return 1;
+//   }
+// }
 
 function displayList(animals) {
   // clear the list
