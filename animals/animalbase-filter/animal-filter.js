@@ -36,9 +36,12 @@ function start() {
   findButtons();
   loadJSON();
 }
+//UI for the filter buttons
 function findButtons() {
-  console.log("test");
+  // console.log("test");
   document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", chooseFilter));
+
+  document.querySelectorAll("[data-action='sort']").forEach((button) => button.addEventListener("click", chooseSort));
 }
 
 async function loadJSON() {
@@ -80,12 +83,12 @@ function chooseFilter(event) {
 // we want to create a filtered list before we display it
 // filter for cats, for dogs, and all animals
 
-function filteredList(animalType) {
+function filteredList(filterBy) {
   let filteredList = allAnimals;
-  if (animalType === "cat") {
+  if (filterBy === "cat") {
     //create a filtered list of only CATS
     filteredList = allAnimals.filter(isCat);
-  } else if (animalType === "dog") {
+  } else if (filterBy === "dog") {
     filteredList = allAnimals.filter(isDog);
   }
 
@@ -100,6 +103,43 @@ function isCat(animal) {
 function isDog(animal) {
   console.log("found some dogs");
   return animal.type === "dog";
+}
+
+/** Moving onto the sorting part, begin the same as with filtering */
+
+function chooseSort(event) {
+  const sortBy = event.target.dataset.sort;
+  console.log(`user sorting by ${sortBy}`);
+  sortList(sortBy);
+}
+
+function sortList(sortBy) {
+  let sortedList = allAnimals;
+
+  if (sortBy === "name") {
+    sortedList = sortedList.sort(sortByName);
+  } else if (sortBy === "type") {
+    sortedList = sortedList.sort(sortByType);
+  }
+
+  //hardcode only name, only type, now add more functionality
+  displayList(sortedList);
+}
+
+function sortByName(animalA, animalB) {
+  if (animalA.name < animalB.name) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
+function sortByType(animalA, animalB) {
+  if (animalA.type < animalB.type) {
+    return -1;
+  } else {
+    return 1;
+  }
 }
 
 function displayList(animals) {
