@@ -32,10 +32,6 @@ const Animal = {
 
 function start() {
   console.log("ready");
-  // buttons.forEach(function (button) {
-  //   button.addEventListener("click", sayHi);
-  // });
-
   // TODO: Add event-listeners to btn
   findButtons();
   loadJSON();
