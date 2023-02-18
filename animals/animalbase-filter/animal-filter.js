@@ -32,27 +32,18 @@ const Animal = {
 
 function start() {
   console.log("ready");
-  buttons.forEach(function (button) {
-    button.addEventListener("click", sayHi);
-  });
+  // buttons.forEach(function (button) {
+  //   button.addEventListener("click", sayHi);
+  // });
 
-  // TODO: Add event-listeners to filter and sort buttons
-
+  // TODO: Add event-listeners to btn
+  findButtons();
   loadJSON();
 }
-function sayHi() {
-  console.log("hi");
+function findButtons() {
+  console.log("test");
+  document.querySelectorAll("[data-action='filter']").forEach((button) => button.addEventListener("click", chooseFilter));
 }
-
-// function isCat(animal) {
-//   console.log("looking for cats");
-//   if (animal.type === "cat") {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
-// console.log("is a cat");
 
 async function loadJSON() {
   const response = await fetch("animals.json");
@@ -81,13 +72,22 @@ function preapareObject(jsonObject) {
   return animal;
 }
 
+function chooseFilter(event) {
+  const filter = event.target.dataset.filter;
+  // event.target refers to the element that triggered the event, which in this case would be the button that was clicked.
+  //The dataset property is a way to access the data- attributes of an element in JavaScript.
+  // The above line is extracting the value of the data-filter attribute of the button element that was clicked and storing it in the filter variable. The value of filter will be either "cat" or "dog", depending on which button was clicked.
+  console.log(`user chose ${filter}`);
+  filteredList(filter);
+}
+
 // we want to create a filtered list before we display it
+// filter for cats, for dogs, and all animals
 
 function filteredList(animalType) {
   let filteredList = allAnimals;
   if (animalType === "cat") {
     //create a filtered list of only CATS
-    // based on what button was clicked
     filteredList = allAnimals.filter(isCat);
   } else if (animalType === "dog") {
     filteredList = allAnimals.filter(isDog);
@@ -102,6 +102,7 @@ function isCat(animal) {
 }
 
 function isDog(animal) {
+  console.log("found some dogs");
   return animal.type === "dog";
 }
 
