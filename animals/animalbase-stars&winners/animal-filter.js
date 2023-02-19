@@ -1,5 +1,14 @@
 "use strict";
 
+// Star
+// remember Model (the data model), View(filtering, sorting, stars), Controller(what I can do as a user-click sort/filter, star btn)
+// we need to separate into 3 parts to define the process
+// 1.Model - add star to animal
+// 2. View - add visible fixed star to each animal in the list
+// 2. get the star status from the model and display that in the list (selected, not selected)
+// 3. Controller
+// 3. user interactivity to turn stars on & off.
+
 window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
@@ -11,6 +20,8 @@ const Animal = {
   desc: "-unknown animal-",
   type: "",
   age: 0,
+  // boolean because we want it on or off:
+  star: false,
 };
 
 const settings = {
@@ -43,7 +54,8 @@ async function loadJSON() {
 function prepareObjects(jsonData) {
   allAnimals = jsonData.map(preapareObject);
 
-  displayList(allAnimals);
+  // we filter and sort on the first load
+  buildList();
 }
 
 function preapareObject(jsonObject) {
@@ -158,6 +170,7 @@ function displayList(animals) {
   animals.forEach(displayAnimal);
 }
 
+//Stars found here
 function displayAnimal(animal) {
   const clone = document.querySelector("template#animal").content.cloneNode(true);
 
@@ -166,15 +179,25 @@ function displayAnimal(animal) {
   clone.querySelector("[data-field=type]").textContent = animal.type;
   clone.querySelector("[data-field=age]").textContent = animal.age;
 
+  //adds star
+
+  if (animal.star === true) {
+    clone.querySelector("[data-field=star]").textContent = "🌟";
+  } else {
+    clone.querySelector("[data-field=star]").textContent = "☆";
+  }
+
+  // add star controller
+  clone.querySelector("[data-field=star]").addEventListener("click", clickStar);
+
+  function clickStar() {
+    if (animal.star === true) {
+      animal.star = false;
+    } else {
+      animal.star = true;
+    }
+    buildList();
+  }
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
 }
-
-/** Stars */
-// remember Model (the data model), View(filtering, sorting, stars), Controller(what I can do as a user-click sort/filter, star btn)
-// we need to separate into 3 parts to define the process
-// 1.Model - add star to animal
-// 2. View - add visible fixed star to each animal in the list
-// 2. get the star status from the model and display that in the list (selected, not selected)
-// 3. Controller
-// 3. user interactivity to turn stars on & off.
