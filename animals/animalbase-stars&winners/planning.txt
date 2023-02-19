@@ -1,0 +1,23 @@
+Star
+- Remember Model (the data model), View(filtering, sorting, stars), Controller(what I can do as a user-click sort/filter, star btn)
+- we need to separate into 3 parts to define the process
+1.Model - add star to animal
+2. View - add visible fixed star to each animal in the list
+2. get the star status from the model and display that in the list (selected, not selected)
+3. Controller
+3. user interactivity to turn stars on & off.
+
+Winners
+
+-Model
+    - add winner status to animal
+-View
+    - add visible winners fixed values
+    - show winner in the list
+    - get winner status from the model and display that
+-Controller
+    - fake winners, add a toggle button to make each animal a winner
+    - design the logic for the rules ... might need drawing
+    - implement the logic with lots of basic functions (step by step)
+    - add user interface to logic (includes view again)
+    - dynamic dialogue boxes;

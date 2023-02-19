@@ -1,14 +1,5 @@
 "use strict";
 
-// Star
-// remember Model (the data model), View(filtering, sorting, stars), Controller(what I can do as a user-click sort/filter, star btn)
-// we need to separate into 3 parts to define the process
-// 1.Model - add star to animal
-// 2. View - add visible fixed star to each animal in the list
-// 2. get the star status from the model and display that in the list (selected, not selected)
-// 3. Controller
-// 3. user interactivity to turn stars on & off.
-
 window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
