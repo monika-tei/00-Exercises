@@ -108,9 +108,9 @@ function chooseSort(event) {
 
   const oldElement = document.querySelector(`[data-sort="${settings.sortBy}"]`);
   oldElement.classList.remove("sortBy");
-  //indicate active sort
-  event.target.classList.add("sortBy");
 
+  // indicate active sort
+  event.target.classList.add("sortBy");
   // toggles direction
   if (sortDir === "asc") {
     event.target.dataset.sortDirection = "desc";
