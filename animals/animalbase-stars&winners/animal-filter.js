@@ -201,11 +201,15 @@ function displayAnimal(animal) {
     if (animal.winner === true) {
       animal.winner = false;
     } else {
-      animal.winner = true;
+      tryToMakeAWinner(animal);
+      // animal.winner = true;
     }
     buildList();
   }
 
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
+}
+function tryToMakeAWinner(animal) {
+  //design first
 }
