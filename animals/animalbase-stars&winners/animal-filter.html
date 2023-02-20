@@ -46,6 +46,33 @@
       </tr>
     </template>
 
+    <div id="remove-other" class="modal hide">
+      <div class="dialog">
+        <button class="closebutton">X</button>
+        <h1>Attention!</h1>
+        <p>
+          There can be only 1 winner of each type. <br />
+          Do you want to remove the other winner?
+        </p>
+        <button id="removeOtherBtn">Remove the other</button>
+      </div>
+    </div>
+
+    <div id="remove-aorb" class="modal hide">
+      <div class="dialog">
+        <button class="closebutton">X</button>
+        <h1>Attention!</h1>
+        <p>
+          There can be only 2 winners in total. <br />
+          Do you want to remove the other winner?
+        </p>
+        <div class="sidebyside">
+          <button id="removeA">Remove A</button>
+          <button id="removeB">Remove B</button>
+        </div>
+      </div>
+    </div>
+
     <script src="animal-filter.js"></script>
   </body>
 </html>

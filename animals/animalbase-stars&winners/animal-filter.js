@@ -162,7 +162,7 @@ function displayList(animals) {
   animals.forEach(displayAnimal);
 }
 
-//Stars found here
+//Stars and winners found here
 function displayAnimal(animal) {
   const clone = document.querySelector("template#animal").content.cloneNode(true);
 
@@ -210,6 +210,89 @@ function displayAnimal(animal) {
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
 }
-function tryToMakeAWinner(animal) {
-  //design first
+
+//winner rules
+function tryToMakeAWinner(selectedAnimal) {
+  const winners = allAnimals.filter((animal) => animal.winner);
+
+  const numberOfWinners = winners.length;
+
+  const other = winners.filter((animal) => animal.type === selectedAnimal.type).shift();
+
+  //if there is another of the same type
+  if (other !== undefined) {
+    console.log("there can be 1 winner of each type");
+    removeOther(other);
+  } else if (numberOfWinners >= 2) {
+    console.log("there can only be 2 winners");
+    removeAorB(winners[0], winners[1]);
+  } else {
+    makeWinner(selectedAnimal);
+  }
+
+  function removeOther(other) {
+    //ask the user to ignore or remove the other
+
+    document.querySelector("#remove-other").classList.remove("hide");
+    document.querySelector("#remove-other .closebutton").addEventListener("click", closeDialog);
+    document.querySelector("#remove-other #removeOtherBtn").addEventListener("click", clickRemoveOther);
+
+    //if ignore - do nothing...
+    function closeDialog() {
+      document.querySelector("#remove-other").classList.add("hide");
+
+      document.querySelector("#remove-other .closebutton").removeEventListener("click", closeDialog);
+
+      document.querySelector("#remove-other #removeOtherBtn").removeEventListener("click", clickRemoveOther);
+    }
+
+    //if remove other...
+    function clickRemoveOther() {
+      removeWinner(other);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDialog();
+    }
+  }
+
+  function removeAorB(winnerA, winnerB) {
+    // ask the user to ignore or remove A or B
+
+    document.querySelector("#remove-aorb").classList.remove("hide");
+    document.querySelector("#remove-aorb .closebutton").addEventListener("click", closeDialog);
+    document.querySelector("#remove-aorb #removeA").addEventListener("click", clickRemoveA);
+    document.querySelector("#remove-aorb #removeB").addEventListener("click", clickRemoveB);
+
+    //if ignore - do nothing
+    function closeDialog() {
+      document.querySelector("#remove-aorb").classList.add("hide");
+      document.querySelector("#remove-aorb .closebutton").removeEventListener("click", closeDialog);
+      document.querySelector("#remove-aorb #removeA").removeEventListener("click", clickRemoveA);
+      document.querySelector("#remove-aorb #removeB").removeEventListener("click", clickRemoveB);
+    }
+
+    function clickRemoveA() {
+      //if A is removed
+      removeWinner(winnerA);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDialog();
+    }
+
+    function clickRemoveB() {
+      //if B is removed
+      removeWinner(winnerB);
+      makeWinner(selectedAnimal);
+      buildList();
+      closeDialog();
+    }
+  }
+
+  function removeWinner(winnerAnimal) {
+    winnerAnimal.winner = false;
+  }
+
+  function makeWinner(winnerAnimal) {
+    winnerAnimal.winner = true;
+  }
 }

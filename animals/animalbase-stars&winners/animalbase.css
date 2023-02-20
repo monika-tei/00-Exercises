@@ -41,3 +41,42 @@ td[data-field="winner"]::after {
 td[data-field="winner"][data-winner="false"]::after {
   filter: grayscale(1);
 }
+
+/*User dialog box*/
+
+.hide {
+  visibility: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dialog {
+  box-shadow: 2px 1px 10px black;
+  border-radius: 5px;
+  padding: 2em;
+  background-color: #d9be96;
+  position: relative;
+}
+
+.closebutton {
+  position: absolute;
+  top: 0;
+  right: 0.4em;
+  border-radius: 40%;
+  width: 2em;
+  height: 2em;
+}
+
+.dialog h1 {
+  margin-top: 0;
+}
