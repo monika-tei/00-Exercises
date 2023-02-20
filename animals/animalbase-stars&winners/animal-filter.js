@@ -13,6 +13,7 @@ const Animal = {
   age: 0,
   // boolean because we want it on or off:
   star: false,
+  winner: false,
 };
 
 const settings = {

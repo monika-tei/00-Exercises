@@ -10,7 +10,7 @@ Star
 Winners
 
 -Model
-    - add winner status to animal
+    - add winner status to animal++ adding it in the animals prototype
 -View
     - add visible winners fixed values
     - show winner in the list
@@ -21,3 +21,8 @@ Winners
     - implement the logic with lots of basic functions (step by step)
     - add user interface to logic (includes view again)
     - dynamic dialogue boxes;
+
+
+
+    refer back here:
+    https://www.youtube.com/watch?v=haVvnLOTNuI&list=PL1FXcxClUqNKcJsOelM7Wa_0lrwuNm2l3

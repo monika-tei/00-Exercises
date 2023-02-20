@@ -31,3 +31,13 @@
 #sorting th.sortBy[data-sort-direction="desc"]::after {
   content: "↑";
 }
+
+/*Winner*/
+
+td[data-field="winner"]::after {
+  content: "🏆";
+}
+
+td[data-field="winner"][data-winner="false"]::after {
+  filter: grayscale();
+}
