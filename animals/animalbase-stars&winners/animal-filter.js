@@ -190,6 +190,22 @@ function displayAnimal(animal) {
     }
     buildList();
   }
+
+  // Winners
+
+  clone.querySelector("[data-field=winner]").dataset.winner = animal.winner;
+
+  clone.querySelector("[data-field=winner]").addEventListener("click", clickWinner);
+
+  function clickWinner() {
+    if (animal.winner === true) {
+      animal.winner = false;
+    } else {
+      animal.winner = true;
+    }
+    buildList();
+  }
+
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
 }
