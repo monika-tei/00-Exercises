@@ -143,13 +143,3 @@ console.log("calculations:", cal);
 // so how do you filter and sort at the same time?
 // 1. filter runs once, and displays less elements
 // 2. sort then filter
-
-//on arrow functions
-const button = document.querySelector(".button");
-
-button.addEventListener("click", buttonClicked);
-
-function buttonClicked(event) {
-  event.target.style.backgroundColor = "red";
-  event.target.removeEventListener("click", buttonClicked);
-}
