@@ -74,6 +74,9 @@ console.log("sortednames", vardai);
 
 //Example sort by name
 console.clear();
+
+let cal = 0;
+
 const animals = [
   {
     name: "signe",
@@ -89,7 +92,7 @@ const animals = [
   },
   {
     name: "Klaus",
-    type: "dragon",
+    type: "puppy",
   },
   {
     name: "Peter",
@@ -97,15 +100,35 @@ const animals = [
   },
   {
     name: "Choko",
-    type: "reptile",
+    type: "cat",
+  },
+  {
+    name: undefined,
+    type: "cat",
   },
 ];
 
 console.log("animals", animals);
-animals.sort(compareByName);
+
+const cats = animals.filter(findCats);
+
+// an anonymous function would be like
+// const catss = animals.filter((animal) => {
+//   cal++;
+//   return animals.type === "cat";
+// });
+
+function findCats(animals) {
+  cal++;
+  return animals.type === "cat";
+}
+
+console.log("filtered cats", cats);
+
+cats.sort(compareByName);
 
 function compareByName(animalA, animalB) {
-  console.log(`animalA is ${animalA.name} and animalB is ${animalB.name}`);
+  cal++;
   if (animalA.name < animalB.name) {
     return -1;
   } else if (animalA.name > animalB.name) {
@@ -114,8 +137,19 @@ function compareByName(animalA, animalB) {
     return 0;
   }
 }
-
-console.log();
+console.log("calculations:", cal);
+// console.log("cats sorted", cats);
 
 // so how do you filter and sort at the same time?
 // 1. filter runs once, and displays less elements
+// 2. sort then filter
+
+//on arrow functions
+const button = document.querySelector(".button");
+
+button.addEventListener("click", buttonClicked);
+
+function buttonClicked(event) {
+  event.target.style.backgroundColor = "red";
+  event.target.removeEventListener("click", buttonClicked);
+}

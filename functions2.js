@@ -200,3 +200,13 @@ console.log(onlyCats); // gives me 2 arrays with cats
 
 const onlyDogs = animals.filter(isDog);
 console.log(onlyDogs); // gives me 2 arrays with cats
+
+//on arrow functions
+const button = document.querySelector(".button");
+
+button.addEventListener("click", buttonClicked);
+
+function buttonClicked(event) {
+  event.target.style.backgroundColor = "red";
+  event.target.removeEventListener("click", buttonClicked);
+}
